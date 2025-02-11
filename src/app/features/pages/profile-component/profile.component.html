@@ -1,0 +1,8 @@
+<div class="user" *ngFor="let user of users">
+  <img class="user-img" src="{{ user.avatar }}" alt="" />
+  <div class="user-content">
+    <h3 class="user-name">{{ user.name }}</h3>
+    <p class="user-email">{{ user.email }}</p>
+  </div>
+  <button class="user-btn">Follow +</button>
+</div>

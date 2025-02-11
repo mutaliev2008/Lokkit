@@ -1,0 +1,37 @@
+.user {
+  width: 691px;
+  min-height: 72px;
+  background-color: #fff;
+  margin: auto;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 76.88px;
+}
+.user-content {
+  width: 483px;
+  height: 42px;
+}
+.user-btn {
+  width: 120px;
+  height: 36px;
+  border-radius: 1234px;
+  color: #fff;
+  background-color: #4f46e5;
+  border: 0;
+}
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 2px 0;
+}
+.user-email {
+  margin: 0;
+  font-size: 14px;
+}
