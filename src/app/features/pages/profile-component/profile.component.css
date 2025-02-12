@@ -35,3 +35,26 @@
   margin: 0;
   font-size: 14px;
 }
+
+.active-user {
+  background-color: #fff;
+  width: 691px;
+  border-bottom: #000 solid 1px;
+  margin: 0 auto;
+  height: 150px;
+  gap: 100px;
+  display: flex;
+  align-items: center;
+}
+.active-user-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
+
+.active-user-name {
+  font-size: 30px;
+}
+.active-user-email {
+  font-size: 18px;
+}

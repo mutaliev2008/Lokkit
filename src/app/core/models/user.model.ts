@@ -1,6 +1,7 @@
-export interface TUser {
+export interface User {
   id: number;
   name: string;
   email: string;
   avatar: string;
+  isActive: boolean;
 }
