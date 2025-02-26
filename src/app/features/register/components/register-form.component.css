@@ -1,0 +1,116 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.register {
+  position: relative;
+  width: 400px;
+  min-height: 471px;
+  padding: 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.register-logo {
+  margin: 0 auto 30px;
+  width: 145px;
+}
+
+.decoration {
+  position: absolute;
+  width: 67px;
+  height: 20px;
+  background-color: #3b27f4;
+  border-radius: 30px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin: 45px 0 0 165px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+
+.register-label {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 30px;
+  font-size: 16px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.register-button {
+  padding: 10px;
+  background-color: #3b27f4;
+  color: #fff;
+  border: none;
+  border-radius: 123px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 14px;
+}
+
+.register-button:hover {
+  background-color: #dbdbdb;
+}
+
+.register-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-links {
+  color: #3b27f4;
+}
+
+.social-network {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-network-link {
+  width: 40px;
+  border-radius: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.network-link-Google {
+  background-color: #da483f;
+}
+.network-link-VK {
+  background-color: #4c77a6;
+}
+
+.network-link-Youtube {
+  background-color: #f52929;
+}

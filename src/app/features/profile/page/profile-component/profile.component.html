@@ -1,0 +1,26 @@
+<div *ngIf="userService.activeUser" class="active-user">
+  <img
+    class="active-user-img"
+    src="{{ userService.activeUser.avatar }}"
+    alt=""
+  />
+  <div class="active-user-content">
+    <h3 class="active-user-name">{{ userService.activeUser.name }}</h3>
+    <p class="active-user-email">{{ userService.activeUser.email }}</p>
+  </div>
+</div>
+<div class="user" *ngFor="let user of userService.users">
+  <img class="user-img" src="{{ user.avatar }}" alt="" />
+  <div class="user-content">
+    <h3 class="user-name">{{ user.name }}</h3>
+    <p class="user-email">{{ user.email }}</p>
+  </div>
+  <button
+    class="user-btn"
+    (click)="setActiveUser(user.id)"
+    appActiveButtonColor
+    [isActive]="user.isActive"
+  >
+    {{ user.isActive ? "unfollow +" : "Follow +" }}
+  </button>
+</div>
