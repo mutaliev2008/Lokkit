@@ -1,0 +1,231 @@
+.sidebar {
+  width: 312px;
+  height: 960px;
+  background: #ffffff;
+  padding: 24px 0;
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.topbar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.logo {
+  padding: 0 14px;
+  width: 120px;
+  height: 30px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  padding: 8px 11px;
+  margin-left: 14px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 100px;
+  box-sizing: border-box;
+
+  img {
+    margin-right: 8px;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    color: #6e7191;
+    background: transparent;
+  }
+}
+
+nav {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      height: 48px;
+      padding: 12px 12px 12px 26px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #6e7191;
+      transition: background-color 0.2s ease;
+
+      img {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background: rgba(109, 99, 255, 0.04);
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .active {
+    background: rgba(109, 99, 255, 0.08);
+    border-radius: 8px;
+    color: #6d5ff5;
+  }
+}
+
+.badge {
+  margin-left: auto;
+  height: 28px;
+  display: flex;
+  background: #eef2ff;
+  border-radius: 100px;
+  padding: 4px 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: #4f46e5;
+  border: 1px solid #a5b4fc;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-utilities {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.notification-banner {
+  margin: 14px;
+  padding: 16px;
+  width: 280px;
+  height: 168px;
+  background: #f8fafc;
+  border-radius: 24px;
+  box-sizing: border-box;
+  position: relative;
+
+  .banner-img-container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 123px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e8f0;
+  }
+
+  p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #6e7191;
+    margin: 20px 0px 10px 0px;
+  }
+
+  .close-button {
+    position: absolute;
+    bottom: 121px;
+    right: 10px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 32px;
+    color: #94a3b8;
+  }
+
+  .notification-actions {
+    display: flex;
+    margin-top: 17px;
+    justify-content: flex-start;
+    gap: 17px;
+  }
+
+  .dismiss-button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #6e7191;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .go-pro-button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 20px;
+    color: #4f46e5;
+    cursor: pointer;
+  }
+}
+
+.user-profile {
+  margin-top: auto;
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
+  img.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+
+  .user-info {
+    .user-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      color: #1e293b;
+    }
+
+    .user-role {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: #475569;
+    }
+  }
+
+  img:last-child {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 85px;
+  }
+}

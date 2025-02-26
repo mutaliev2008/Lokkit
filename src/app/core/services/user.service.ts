@@ -7,6 +7,7 @@ import { User } from '../models/user.model';
 })
 export class UserService {
   users: User[] = [];
+  activeUser: User | undefined;
 
   getAllUsers(): User[] {
     this.users = [...usersData];
@@ -16,13 +17,13 @@ export class UserService {
     return this.users.find((user) => user.id === id);
   }
   getActiveUser() {
-    return this.users.find((user) => user.isActive);
+    this.activeUser = this.users.find((user) => user.isActive);
+    return this.activeUser;
   }
   updateUser(id: number, userData: Partial<User>) {
     this.users = this.users.map((user) =>
       user.id === id ? { ...user, ...userData } : user
     );
-    console.log(`Пользователь с id ${id} обновлен.`, this.users);
   }
   switchUser(id: number): void {
     this.users = this.users.map((user) => ({

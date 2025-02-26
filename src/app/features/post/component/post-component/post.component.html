@@ -1,0 +1,98 @@
+<article class="post">
+  <div class="post-header">
+    <div class="post-user-data">
+      <img class="post-user-image" src="{{ post.userAvatar }}" alt="" />
+      <div class="post-user-info">
+        <h2 class="post-user-name">{{ post | userName }}</h2>
+        <p class="post-user-about">{{ post.role }}</p>
+      </div>
+    </div>
+    <button class="post-button options-button">
+      <img src="assets/icons/dots-vertical.svg" alt="" />
+    </button>
+  </div>
+  <div class="post-content">
+    <p class="post-text">
+      {{ post.post_content | cutTextPipe : 100 : "..." }}
+      <span *ngFor="let hashtag of post.hashtags" class="post-hashtags">{{
+        hashtag
+      }}</span>
+    </p>
+    <img
+      *ngIf="post.post_image"
+      class="post-image"
+      src="{{ post.post_image }}"
+      alt=""
+    />
+    <div class="post-actions">
+      <ul class="actions-container">
+        <li class="actions-li">
+          <button (click)="likePost(post.id)" class="post-button">
+            <img src="assets/icons/thumbs.svg" alt="" />
+          </button>
+          <p class="post-like-count">{{ post.likes }} Likes</p>
+        </li>
+        <li class="actions-li">
+          <button (click)="toggleComments()" class="post-button">
+            <img src="assets/icons/chat-dots.svg" alt="" />
+          </button>
+          <p class="post-comment-count">{{ post.comments.length }} Comments</p>
+        </li>
+        <li class="actions-li">
+          <button class="post-button">
+            <img src="assets/icons/share-fat.svg" alt="" />
+          </button>
+          <p class="post-share-count">{{ post.shares }} Share</p>
+        </li>
+      </ul>
+
+      <button class="post-button post-save-button">
+        <img src="assets/icons/bookmark.svg" alt="" />
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="showComments">
+    <div *ngFor="let comment of post.comments" class="post-comments">
+      <ul class="comment-list">
+        <li class="comment">
+          <img
+            class="comment-user-image"
+            src="{{ comment.userAvatar }}"
+            alt=""
+          />
+          <div class="comment-content">
+            <h3 class="comment-user-name">{{ comment.userName }}</h3>
+            <p class="comment-text">{{ comment.content }}</p>
+            <p class="comment-date">{{ comment.createdAt }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <div class="post-footer">
+    <div class="post-comment">
+      <img
+        class="post-user-image"
+        src="https://avatars.mds.yandex.net/i?id=7420abb30a547d6f0feaf134481efaf623786301-11413071-images-thumbs&n=13"
+        alt=""
+      />
+      <input
+        class="post-comment-input"
+        placeholder="Write your comment.."
+        type="text"
+      />
+    </div>
+    <div class="post-comment-buttons">
+      <button class="comment-button">
+        <img src="assets/icons/send.svg" alt="" />
+      </button>
+      <button class="comment-button">
+        <img src="assets/icons/smile.svg" alt="" />
+      </button>
+      <button class="comment-button">
+        <img src="assets/icons/Monotone add.svg" alt="" />
+      </button>
+    </div>
+  </div>
+</article>
