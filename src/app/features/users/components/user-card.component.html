@@ -6,8 +6,13 @@
       <p class="user-email">{{ user.email }}</p>
     </div>
   </div>
-  <button class="user-btn">
-    "Follow"
+  <button
+    class="user-btn"
+    (click)="toggleButton()"
+    appSubscribeActiveButton
+    [buttonState]="buttonState"
+  >
+    {{ buttonState ? "unfollow" : "Follow" }}
     <img src="assets/icons/plus.svg" alt="" />
   </button>
 </div>
