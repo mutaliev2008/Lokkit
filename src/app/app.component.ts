@@ -7,6 +7,7 @@ import { LoginFormComponent } from './features/login/components/login-form.compo
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SuggestionComponent } from './features/insights/suggestion.component';
+import { UsersPageComponent } from './features/users/page/users-page.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { SuggestionComponent } from './features/insights/suggestion.component';
     SidebarComponent,
     HeaderComponent,
     SuggestionComponent,
+    UsersPageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

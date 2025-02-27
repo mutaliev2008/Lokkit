@@ -34,4 +34,36 @@ export const usersData: User[] = [
     email: 'maga@example.com',
     isActive: true,
   },
+  {
+    id: 5,
+    name: 'John Doe',
+    avatar:
+      'https://avatars.mds.yandex.net/i?id=b3538dc07073a146df374965ab2f7c1f452890a9-4908143-images-thumbs&n=13',
+    email: 'john.doe@example.com',
+    isActive: false,
+  },
+  {
+    id: 6,
+    name: 'John Doe',
+    avatar:
+      'https://avatars.mds.yandex.net/i?id=b3538dc07073a146df374965ab2f7c1f452890a9-4908143-images-thumbs&n=13',
+    email: 'john.doe@example.com',
+    isActive: false,
+  },
+  {
+    id: 7,
+    name: 'John Doe',
+    avatar:
+      'https://avatars.mds.yandex.net/i?id=b3538dc07073a146df374965ab2f7c1f452890a9-4908143-images-thumbs&n=13',
+    email: 'john.doe@example.com',
+    isActive: false,
+  },
+  {
+    id: 8,
+    name: 'John Doe',
+    avatar:
+      'https://avatars.mds.yandex.net/i?id=b3538dc07073a146df374965ab2f7c1f452890a9-4908143-images-thumbs&n=13',
+    email: 'john.doe@example.com',
+    isActive: false,
+  },
 ];

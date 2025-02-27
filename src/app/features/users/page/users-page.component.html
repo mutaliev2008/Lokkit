@@ -1,0 +1,7 @@
+<main class="users-container">
+  <h1 class="users-title">Users</h1>
+  <app-user-card
+    *ngFor="let user of userService.users"
+    [user]="user"
+  ></app-user-card>
+</main>
