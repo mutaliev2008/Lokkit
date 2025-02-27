@@ -1,0 +1,48 @@
+.user {
+  padding: 15px 8px;
+  background-color: #fff;
+  gap: 20px;
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-content-container {
+  display: flex;
+  gap: 25px;
+}
+
+.user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 76.88px;
+}
+.user-content {
+  width: 483px;
+  height: 42px;
+}
+.user-btn {
+  width: 120px;
+  height: 36px;
+  border-radius: 1234px;
+  color: #fff;
+  background-color: #4f46e5;
+  border: 0;
+  display: flex;
+  gap: 13px;
+  font-size: 16px;
+  justify-content: center;
+  letter-spacing: -0.7px;
+  align-items: center;
+}
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 2px 0;
+}
+.user-email {
+  margin: 0;
+  font-size: 14px;
+}

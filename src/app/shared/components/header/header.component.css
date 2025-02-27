@@ -1,14 +1,14 @@
 .header {
   width: 1128px;
-  height: 88px;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  padding: 20px 32px;
   background-color: #fff;
   border: #e2e8f0 solid 1px;
   justify-content: space-between;
-  position: absolute;
-  right: 0;
+  position: fixed;
+  left: 312px;
+  top: 0;
 }
 
 .user-actions {
@@ -46,6 +46,11 @@
   font-weight: 700;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.add-new-post:hover {
+  background-color: #4f46e5bf;
 }
 
 .navigate {
