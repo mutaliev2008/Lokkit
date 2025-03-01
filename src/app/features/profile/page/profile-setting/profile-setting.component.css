@@ -1,0 +1,105 @@
+.setting {
+  display: grid;
+  max-width: 1064px;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.setting-accesses-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.accesses-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.setting-appearance-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.setting-appearance-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.save-btn {
+  width: 104px;
+  padding: 12px 0;
+  background-color: #4f46e5;
+  color: #fff;
+  border-radius: 15px;
+  border: 0;
+  outline: 0;
+  margin-top: 7px;
+  align-self: end;
+  cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.save-btn:hover {
+  background-color: #4f46e5bf;
+}
+
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-description {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ececec;
+  border: 1px solid #cbd5e1;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 2px;
+  background-color: #4f46e5;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #cbd5e1;
+}
+
+input:checked + .slider:before {
+  transform: translateX(13px);
+  background-color: #4f46e5;
+}

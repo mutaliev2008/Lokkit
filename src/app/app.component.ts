@@ -8,6 +8,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SuggestionComponent } from './features/insights/suggestion.component';
 import { UsersPageComponent } from './features/users/page/users-page.component';
+import { ProfileSettingComponent } from './features/profile/page/profile-setting/profile-setting.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { UsersPageComponent } from './features/users/page/users-page.component';
     HeaderComponent,
     SuggestionComponent,
     UsersPageComponent,
+    ProfileSettingComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

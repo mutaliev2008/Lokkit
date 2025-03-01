@@ -1,0 +1,36 @@
+.activation-button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.input-label {
+  display: flex;
+  max-width: 515px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  padding: 11px;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.input-label-disabled {
+  background-color: #ececec;
+}
+
+.input {
+  background: transparent;
+  outline: 0;
+  border: 0;
+}
+
+.input::placeholder {
+  color: #475569;
+}
+
+.input-disabled::placeholder {
+  color: #d0d0d0;
+}

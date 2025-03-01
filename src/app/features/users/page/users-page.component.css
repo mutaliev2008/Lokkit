@@ -1,6 +1,4 @@
 .users-container {
-  margin-left: 350px;
-  margin-top: 120px;
   display: flex;
   flex-direction: column;
   gap: 15px;

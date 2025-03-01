@@ -1,0 +1,57 @@
+<section class="setting">
+  <div class="setting-appearance-inputs">
+    <h2 class="setting-title">Appearance</h2>
+    <app-input
+      [inputIcons]="'assets/icons/pencil.svg'"
+      [inputPlaceHolder]="'Theme'"
+    ></app-input>
+
+    <app-input
+      [inputIcons]="'assets/icons/pencil.svg'"
+      [inputPlaceHolder]="'Font size'"
+    ></app-input>
+
+    <app-input
+      [inputIcons]="'assets/icons/pencil.svg'"
+      [inputPlaceHolder]="'Interface language'"
+    ></app-input>
+
+    <button class="save-btn">Save</button>
+  </div>
+  <div class="setting-accesses-buttons">
+    <h2 class="setting-title">Accesses</h2>
+    <div class="accesses-buttons-container">
+      <div class="switch-wrapper">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <p class="switch-description">Hide profile</p>
+      </div>
+
+      <div class="switch-wrapper">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <p class="switch-description">Push notifications</p>
+      </div>
+
+      <div class="switch-wrapper">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <p class="switch-description">Email-уведомления</p>
+      </div>
+
+      <div class="switch-wrapper">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <p class="switch-description">SMS-уведомления</p>
+      </div>
+    </div>
+  </div>
+</section>
