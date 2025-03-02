@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileInfoComponent } from '../profile-info/profile-info.component';
 import { ProfileSettingComponent } from '../profile-setting/profile-setting.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-profile-component',
-  imports: [CommonModule, ProfileInfoComponent, ProfileSettingComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
   standalone: true,

@@ -1,4 +1,4 @@
-<main class="profile">
+<div class="profile">
   <div class="profile-top">
     <h1 class="profile-title">Profile</h1>
     <div class="profile-buttons">
@@ -6,6 +6,7 @@
         class="profile-button"
         (click)="setActiveButton('info')"
         [ngClass]="{ active: activeButton === 'info' }"
+        routerLink="info"
       >
         <img src="assets/icons/user.svg" alt="Edit Profile" />
         <p class="profile-button-description">Info</p>
@@ -14,6 +15,7 @@
         class="profile-button"
         (click)="setActiveButton('settings')"
         [ngClass]="{ active: activeButton === 'settings' }"
+        routerLink="setting"
       >
         <img src="assets/icons/setting.svg" alt="Setting" />
         <p class="profile-button-description">Settings</p>
@@ -28,5 +30,5 @@
       </button>
     </div>
   </div>
-  <app-profile-setting></app-profile-setting>
-</main>
+  <router-outlet />
+</div>

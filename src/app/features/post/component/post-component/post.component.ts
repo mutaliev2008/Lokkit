@@ -4,10 +4,11 @@ import { CutTextPipe } from '../../../../shared/pipes/cut-text.pipe';
 import { PostService } from '../../../../core/services/post.service';
 import { Post } from '../../../../core/models/post.model';
 import { UserNamePipe } from '../../../../shared/pipes/user-name.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-post-component',
-  imports: [CommonModule, CutTextPipe, UserNamePipe],
+  imports: [CommonModule, CutTextPipe, UserNamePipe, RouterLink],
   standalone: true,
   templateUrl: './post.component.html',
   styleUrl: './post.component.css',

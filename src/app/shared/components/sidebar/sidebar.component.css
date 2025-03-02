@@ -1,15 +1,14 @@
 .sidebar {
   width: 312px;
-  height: 960px;
+  height: 100vh;
   background: #ffffff;
   padding: 24px 0;
   border: 1px solid #e2e8f0;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 0;
 }
@@ -45,7 +44,6 @@
     border: none;
     outline: none;
     width: 100%;
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 400;
     line-height: 20px;
     color: #6e7191;
@@ -55,26 +53,19 @@
 
 nav {
   width: 100%;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
 
   ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
     list-style: none;
-    padding: 0;
-    margin: 0;
 
     li {
       display: flex;
       align-items: center;
-      box-sizing: border-box;
       cursor: pointer;
       height: 48px;
       padding: 12px 12px 12px 26px;
-      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 16px;
       font-weight: 500;
       line-height: 20px;
@@ -106,7 +97,6 @@ nav {
   background: #eef2ff;
   border-radius: 100px;
   padding: 4px 10px;
-  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 12px;
   font-weight: 600;
   line-height: 15px;
@@ -126,7 +116,6 @@ nav {
   margin: 14px;
   padding: 16px;
   width: 280px;
-  height: 168px;
   background: #f8fafc;
   border-radius: 24px;
   box-sizing: border-box;
@@ -144,7 +133,6 @@ nav {
   }
 
   p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -198,7 +186,6 @@ nav {
   padding: 16px 14px;
   display: flex;
   align-items: center;
-  box-sizing: border-box;
 
   img.avatar {
     width: 40px;
@@ -209,7 +196,6 @@ nav {
 
   .user-info {
     .user-name {
-      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 16px;
       font-weight: 600;
       line-height: 20px;
@@ -217,7 +203,6 @@ nav {
     }
 
     .user-role {
-      font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;

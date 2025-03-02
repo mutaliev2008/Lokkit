@@ -1,7 +1,9 @@
 <div class="app-container">
-  <app-header></app-header>
-  <app-sidebar></app-sidebar>
-  <main class="app-content">
-    <app-profile-component></app-profile-component>
-  </main>
+  <div class="app-wrapper">
+    <app-sidebar></app-sidebar>
+    <main class="app-content">
+      <app-header></app-header>
+      <div class="router"><router-outlet></router-outlet></div>
+    </main>
+  </div>
 </div>

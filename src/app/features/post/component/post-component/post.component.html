@@ -7,7 +7,10 @@
         <p class="post-user-about">{{ post.role }}</p>
       </div>
     </div>
-    <button class="post-button options-button">
+    <button
+      [routerLink]="['/post', post.id, 'details']"
+      class="post-button options-button"
+    >
       <img src="assets/icons/dots-vertical.svg" alt="" />
     </button>
   </div>

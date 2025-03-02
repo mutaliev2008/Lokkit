@@ -1,5 +1,4 @@
 .header {
-  max-width: 1128px;
   z-index: 9999;
   width: 100%;
   display: flex;
@@ -8,8 +7,7 @@
   background-color: #fff;
   border: #e2e8f0 solid 1px;
   justify-content: space-between;
-  position: fixed;
-  left: 312px;
+  position: sticky;
   top: 0;
 }
 
