@@ -1,58 +1,40 @@
-.user {
-  width: 691px;
-  min-height: 72px;
-  background-color: #fff;
-  gap: 20px;
+.profile {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.user-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 76.88px;
+.profile-title {
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: -0.6px;
 }
-.user-content {
-  width: 483px;
-  height: 42px;
+.profile-buttons {
+  display: flex;
+  gap: 31px;
+  margin-top: 7px;
 }
-.user-btn {
-  width: 120px;
-  height: 36px;
-  border-radius: 1234px;
-  color: #fff;
-  background-color: #4f46e5;
+.profile-button {
+  display: flex;
+  padding: 8px;
   border: 0;
-}
-.user-name {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  margin: 2px 0;
-}
-.user-email {
-  margin: 0;
-  font-size: 14px;
+  outline: 0;
+  background-color: transparent;
+  gap: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
-.active-user {
-  background-color: #fff;
-  width: 691px;
-  border-bottom: #000 solid 1px;
-  height: 150px;
-  gap: 100px;
-  display: flex;
-  align-items: center;
+.profile-button:hover {
+  background-color: #e2e8f0ab;
 }
-.active-user-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
+.profile-button-description {
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.3px;
 }
 
-.active-user-name {
-  font-size: 30px;
-}
-.active-user-email {
-  font-size: 18px;
+.profile-button.active {
+  background-color: #e2e8f0;
 }

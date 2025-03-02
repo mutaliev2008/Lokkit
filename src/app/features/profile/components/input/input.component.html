@@ -1,0 +1,11 @@
+<label #label class="input-label">
+  <input
+    #input
+    placeholder="{{ inputPlaceHolder }}"
+    type="text"
+    class="input"
+  />
+  <button (click)="toggleInputState()" class="activation-button">
+    <img src="{{ inputIcons }}" alt="" />
+  </button>
+</label>

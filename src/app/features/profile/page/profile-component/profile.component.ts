@@ -1,27 +1,19 @@
-import { Component, inject, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActiveButtonColorDirective } from '../../../../shared/directives/active-button-color.directive';
-import { UserService } from '../../../../core/services/user.service';
-import { User } from '../../../../core/models/user.model';
+import { ProfileInfoComponent } from '../profile-info/profile-info.component';
+import { ProfileSettingComponent } from '../profile-setting/profile-setting.component';
 
 @Component({
   selector: 'app-profile-component',
-  imports: [CommonModule, ActiveButtonColorDirective],
+  imports: [CommonModule, ProfileInfoComponent, ProfileSettingComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
   standalone: true,
 })
-export class ProfileComponent implements OnInit {
-  userService = inject(UserService);
+export class ProfileComponent {
+  activeButton: string = 'info';
 
-  ngOnInit(): void {
-    this.userService.getAllUsers();
-    this.userService.getActiveUser();
-  }
-
-  setActiveUser(id: number): void {
-    this.userService.switchUser(id);
-    this.userService.getActiveUser();
+  setActiveButton(button: string): void {
+    this.activeButton = button;
   }
 }

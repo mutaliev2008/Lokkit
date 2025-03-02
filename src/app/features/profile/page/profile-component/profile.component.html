@@ -1,26 +1,32 @@
-<div *ngIf="userService.activeUser" class="active-user">
-  <img
-    class="active-user-img"
-    src="{{ userService.activeUser.avatar }}"
-    alt=""
-  />
-  <div class="active-user-content">
-    <h3 class="active-user-name">{{ userService.activeUser.name }}</h3>
-    <p class="active-user-email">{{ userService.activeUser.email }}</p>
+<main class="profile">
+  <div class="profile-top">
+    <h1 class="profile-title">Profile</h1>
+    <div class="profile-buttons">
+      <button
+        class="profile-button"
+        (click)="setActiveButton('info')"
+        [ngClass]="{ active: activeButton === 'info' }"
+      >
+        <img src="assets/icons/user.svg" alt="Edit Profile" />
+        <p class="profile-button-description">Info</p>
+      </button>
+      <button
+        class="profile-button"
+        (click)="setActiveButton('settings')"
+        [ngClass]="{ active: activeButton === 'settings' }"
+      >
+        <img src="assets/icons/setting.svg" alt="Setting" />
+        <p class="profile-button-description">Settings</p>
+      </button>
+      <button
+        class="profile-button"
+        (click)="setActiveButton('devices')"
+        [ngClass]="{ active: activeButton === 'devices' }"
+      >
+        <img src="assets/icons/devices.svg" alt="Devices" />
+        <p class="profile-button-description">Devices</p>
+      </button>
+    </div>
   </div>
-</div>
-<div class="user" *ngFor="let user of userService.users">
-  <img class="user-img" src="{{ user.avatar }}" alt="" />
-  <div class="user-content">
-    <h3 class="user-name">{{ user.name }}</h3>
-    <p class="user-email">{{ user.email }}</p>
-  </div>
-  <button
-    class="user-btn"
-    (click)="setActiveUser(user.id)"
-    appActiveButtonColor
-    [isActive]="user.isActive"
-  >
-    {{ user.isActive ? "unfollow +" : "Follow +" }}
-  </button>
-</div>
+  <app-profile-setting></app-profile-setting>
+</main>

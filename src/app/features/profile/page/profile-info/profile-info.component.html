@@ -1,0 +1,60 @@
+<section class="section-profile-info">
+  <div class="profile-user">
+    <img
+      src="{{ userService.activeUser?.avatar }}"
+      alt="User Avatar"
+      class="user-avatar"
+    />
+    <div class="profile-user-buttons">
+      <button class="change-avater-btn user-button">Change photo</button>
+      <button class="delete-btn user-button">Delete</button>
+    </div>
+  </div>
+  <div class="profile-inputs-container">
+    <div class="profile-info-inputs">
+      <h1 class="profile-inputs-title">Info</h1>
+      <div class="user-name-inputs">
+        <app-input
+          [inputIcons]="'assets/icons/pencil.svg'"
+          [inputPlaceHolder]="'Last Name'"
+        ></app-input>
+
+        <app-input
+          [inputIcons]="'assets/icons/pencil.svg'"
+          [inputPlaceHolder]="'FullName'"
+        ></app-input>
+      </div>
+
+      <app-input
+        [inputIcons]="'assets/icons/pencil.svg'"
+        [inputPlaceHolder]="'City'"
+      ></app-input>
+
+      <app-input
+        [inputIcons]="'assets/icons/pencil.svg'"
+        [inputPlaceHolder]="'Story'"
+      ></app-input>
+
+      <button class="save-btn">Save</button>
+    </div>
+    <div class="profile-password-inputs">
+      <h1 class="profile-password-title">Password</h1>
+      <app-input
+        [inputIcons]="'assets/icons/pencil.svg'"
+        [inputPlaceHolder]="'Old Password'"
+      ></app-input>
+
+      <app-input
+        [inputIcons]="'assets/icons/pencil.svg'"
+        [inputPlaceHolder]="'New Password'"
+      ></app-input>
+
+      <app-input
+        [inputIcons]="'assets/icons/pencil.svg'"
+        [inputPlaceHolder]="'Confirm New Password'"
+      ></app-input>
+
+      <button class="save-btn">Save</button>
+    </div>
+  </div>
+</section>
