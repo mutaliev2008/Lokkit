@@ -8,7 +8,6 @@ import { User } from '../models/user.model';
 export class UserService {
   users: User[] = [];
   activeUser: User | undefined;
-
   getAllUsers(): User[] {
     this.users = [...usersData];
     return this.users;

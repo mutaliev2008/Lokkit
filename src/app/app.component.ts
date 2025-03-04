@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SuggestionComponent } from './features/insights/suggestion.component';
 import { UsersPageComponent } from './features/users/page/users-page.component';
 import { ProfileSettingComponent } from './features/profile/page/profile-setting/profile-setting.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { ProfileSettingComponent } from './features/profile/page/profile-setting
     SuggestionComponent,
     UsersPageComponent,
     ProfileSettingComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
