@@ -34,10 +34,12 @@ export class InputComponent {
       this.labelRef.nativeElement.classList.remove('input-label-disabled');
       this.inputRef.nativeElement.classList.remove('input-disabled');
       this.inputRef.nativeElement.removeAttribute('disabled');
+      this.inputRef.nativeElement.focus();
     } else {
       this.labelRef.nativeElement.classList.add('input-label-disabled');
       this.inputRef.nativeElement.classList.add('input-disabled');
       this.inputRef.nativeElement.setAttribute('disabled', 'disabled');
+      this.inputRef.nativeElement.blur();
     }
   }
 }

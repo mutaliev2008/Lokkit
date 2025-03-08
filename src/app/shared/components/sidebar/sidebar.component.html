@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div *ngIf="authService.isLoggedIn" class="sidebar">
   <div class="topbar">
     <img src="assets/images/logo.png" alt="Lokkit Logo" class="logo" />
     <div class="search-bar">
@@ -80,7 +80,9 @@
         <h2 class="user-name">Azunyan U. Wu</h2>
         <p class="user-role">Basic Member</p>
       </div>
-      <img src="assets/icons/exit.svg" alt="Logout" />
+      <button (click)="authService.logoutUser()" class="logout-button">
+        <img src="assets/icons/exit.svg" alt="Logout" />
+      </button>
     </div>
   </div>
 </div>

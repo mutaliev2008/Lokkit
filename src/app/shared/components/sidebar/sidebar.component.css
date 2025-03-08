@@ -213,7 +213,13 @@ nav {
   img:last-child {
     width: 20px;
     height: 20px;
-    cursor: pointer;
-    margin-left: 85px;
   }
+}
+
+.logout-button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 85px;
 }
