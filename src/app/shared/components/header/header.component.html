@@ -1,4 +1,4 @@
-<header class="header">
+<header *ngIf="authService.isLoggedIn" class="header">
   <label class="search-label" for="email">
     <input
       class="search-input"

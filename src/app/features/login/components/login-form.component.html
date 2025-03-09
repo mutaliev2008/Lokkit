@@ -4,10 +4,11 @@
       <p class="decoration-text">Login</p>
     </div>
     <img class="login-logo" src="assets/icons/logo-big.svg" alt="" />
-    <form class="login-form">
+    <form class="login-form" [formGroup]="loginForm">
       <label class="login-label" for="email">
         <img src="assets/icons/email.svg" />
         <input
+          formControlName="email"
           class="login-input"
           type="email"
           id="email"
@@ -15,9 +16,26 @@
         />
       </label>
 
+      @if(!loginForm.controls.email.valid &&
+      loginForm.controls['email'].touched){
+      <p
+        *ngIf="loginForm.get(['email'])?.errors?.['email']"
+        class="error-message"
+      >
+        Invalid email format
+      </p>
+      <p
+        *ngIf="loginForm.get(['email'])?.errors?.['required']"
+        class="error-message"
+      >
+        Email is required
+      </p>
+      }
+
       <label class="login-label" for="email">
         <img src="assets/icons/unlock.svg" />
         <input
+          formControlName="password"
           placeholder="Password"
           class="login-input"
           type="password"
@@ -26,7 +44,27 @@
           required
         />
       </label>
-
+      @if(!loginForm.controls.password.valid &&
+      loginForm.controls['password'].touched){
+      <p
+        *ngIf="loginForm.get(['password'])?.errors?.['minlength']"
+        class="error-message"
+      >
+        Minimum of 8 symbols
+      </p>
+      <p
+        *ngIf="loginForm.get(['password'])?.errors?.['maxlength']"
+        class="error-message"
+      >
+        Maximum of 16 symbols
+      </p>
+      <p
+        *ngIf="loginForm.get(['password'])?.errors?.['required']"
+        class="error-message"
+      >
+        Invalid password format
+      </p>
+      }
       <div class="login-actions">
         <div class="checkbox-container">
           <input type="checkbox" id="remember-me" />
@@ -34,7 +72,9 @@
         </div>
         <a class="login-links" href="#">Забыли пароль?</a>
       </div>
-      <button type="submit" class="login-button">Login</button>
+      <button (click)="onSubmit()" type="submit" class="login-button">
+        Login
+      </button>
     </form>
     <div class="login-actions">
       <p>Don't have an account?</p>

@@ -8,7 +8,12 @@ import { RegisterComponent } from './features/register/pages/register.component'
 import { PostDetailsPageComponent } from './features/post/pages/post-details-page/post-details-page.component';
 
 export const routes: Routes = [
-  { path: '', component: FeedComponent, canActivate: [authGuard] },
+  {
+    path: '',
+    redirectTo: '/feed',
+    pathMatch: 'full',
+  },
+  { path: 'feed', component: FeedComponent, canActivate: [authGuard] },
   { path: 'users', component: UsersPageComponent, canActivate: [authGuard] },
   {
     path: 'profile/:userId',
