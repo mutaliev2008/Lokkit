@@ -50,7 +50,7 @@
         *ngIf="loginForm.get(['password'])?.errors?.['minlength']"
         class="error-message"
       >
-        Minimum of 8 symbols
+        Minimum of 6 symbols
       </p>
       <p
         *ngIf="loginForm.get(['password'])?.errors?.['maxlength']"
@@ -62,7 +62,7 @@
         *ngIf="loginForm.get(['password'])?.errors?.['required']"
         class="error-message"
       >
-        Invalid password format
+        Password is required
       </p>
       }
       <div class="login-actions">
@@ -79,7 +79,7 @@
     <div class="login-actions">
       <p>Don't have an account?</p>
       <div class="register-link">
-        <a routerLink="register" class="login-links" href="#">Register</a>
+        <a routerLink="/register" class="login-links" href="#">Register</a>
       </div>
     </div>
     <div class="social-network">

@@ -16,6 +16,8 @@ export class AuthService {
 
   registerUser(data: unknown) {
     console.log(data);
+    this.router.navigate(['feed']);
+    this.isLoggedIn = true;
   }
 
   logoutUser() {

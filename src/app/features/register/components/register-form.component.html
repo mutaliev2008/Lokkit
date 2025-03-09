@@ -4,20 +4,36 @@
       <p class="decoration-text">Register</p>
     </div>
     <img class="register-logo" src="assets/icons/logo-big.svg" alt="" />
-    <form class="register-form">
+    <form class="register-form" [formGroup]="registerForm">
       <label class="register-label" for="email">
         <img src="assets/icons/email.svg" />
         <input
+          formControlName="email"
           class="register-input"
           type="email"
           id="email"
           placeholder="Email"
         />
       </label>
-
+      @if(!registerForm.controls.email.valid &&
+      registerForm.controls['email'].touched){
+      <p
+        *ngIf="registerForm.get(['email'])?.errors?.['email']"
+        class="error-message"
+      >
+        Invalid email format
+      </p>
+      <p
+        *ngIf="registerForm.get(['email'])?.errors?.['required']"
+        class="error-message"
+      >
+        Email is required
+      </p>
+      }
       <label class="register-label" for="userName">
         <img src="assets/icons/user.svg" />
         <input
+          formControlName="userName"
           class="register-input"
           type="userName"
           id="userName"
@@ -25,9 +41,32 @@
         />
       </label>
 
+      @if(!registerForm.controls.userName.valid &&
+      registerForm.controls['userName'].touched){
+      <p
+        *ngIf="registerForm.get(['userName'])?.errors?.['minlength']"
+        class="error-message"
+      >
+        Minimum of 2 symbols
+      </p>
+      <p
+        *ngIf="registerForm.get(['userName'])?.errors?.['maxlength']"
+        class="error-message"
+      >
+        Maximum of 50 symbols
+      </p>
+      <p
+        *ngIf="registerForm.get(['userName'])?.errors?.['required']"
+        class="error-message"
+      >
+        Username is required
+      </p>
+      }
+
       <label class="register-label" for="password">
         <img src="assets/icons/unlock.svg" />
         <input
+          formControlName="password"
           placeholder="Password"
           class="register-input"
           type="password"
@@ -36,10 +75,31 @@
           required
         />
       </label>
-
+      @if(!registerForm.controls.password.valid &&
+      registerForm.controls['password'].touched){
+      <p
+        *ngIf="registerForm.get(['password'])?.errors?.['minlength']"
+        class="error-message"
+      >
+        Minimum of 6 symbols
+      </p>
+      <p
+        *ngIf="registerForm.get(['password'])?.errors?.['maxlength']"
+        class="error-message"
+      >
+        Maximum of 16 symbols
+      </p>
+      <p
+        *ngIf="registerForm.get(['password'])?.errors?.['required']"
+        class="error-message"
+      >
+        Password is required
+      </p>
+      }
       <label class="register-label" for="confirmPassword">
         <img src="assets/icons/unlock.svg" />
         <input
+          formControlName="confirmPassword"
           placeholder="Confirm Password"
           class="register-input"
           type="confirmPassword"
@@ -48,13 +108,21 @@
           required
         />
       </label>
-
+      @if(!registerForm.controls.confirmPassword.valid &&
+      registerForm.controls['confirmPassword'].touched){
+      <p
+        *ngIf="registerForm.get(['confirmPassword'])?.errors?.['required']"
+        class="error-message"
+      >
+        Confirm Password is required
+      </p>
+      }
       <button type="submit" class="register-button">Register</button>
     </form>
     <div class="register-actions">
       <p>Do you have an account?</p>
       <div class="register-link">
-        <a class="register-links" href="#">Log In</a>
+        <a routerLink="/login" class="register-links" href="#">Log In</a>
       </div>
     </div>
     <div class="social-network">
