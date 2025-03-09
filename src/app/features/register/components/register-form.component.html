@@ -102,22 +102,27 @@
           formControlName="confirmPassword"
           placeholder="Confirm Password"
           class="register-input"
-          type="confirmPassword"
+          type="password"
           id="confirmPassword"
           name="confirmPassword"
           required
         />
       </label>
-      @if(!registerForm.controls.confirmPassword.valid &&
-      registerForm.controls['confirmPassword'].touched){
+      @if(registerForm.controls['confirmPassword'].touched &&
+      registerForm.errors?.['passwordNotSame']){
       <p
         *ngIf="registerForm.get(['confirmPassword'])?.errors?.['required']"
         class="error-message"
       >
         Confirm Password is required
       </p>
+      <p *ngIf="registerForm.errors?.['passwordNotSame']" class="error-message">
+        Passwords didn't match
+      </p>
       }
-      <button type="submit" class="register-button">Register</button>
+      <button (click)="onSubmit()" type="submit" class="register-button">
+        Register
+      </button>
     </form>
     <div class="register-actions">
       <p>Do you have an account?</p>

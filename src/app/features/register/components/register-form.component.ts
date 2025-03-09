@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { validatePasswordConfirm } from '../validators/password-confirm-validator';
 
 @Component({
   selector: 'app-register-form',
@@ -17,20 +18,23 @@ import { CommonModule } from '@angular/common';
 })
 export class RegisterFormComponent {
   authService = inject(AuthService);
-  registerForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    userName: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(50),
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-      Validators.maxLength(16),
-    ]),
-    confirmPassword: new FormControl('', [Validators.required]),
-  });
+  registerForm = new FormGroup(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      userName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(50),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(16),
+      ]),
+      confirmPassword: new FormControl('', Validators.required),
+    },
+    validatePasswordConfirm
+  );
 
   onSubmit() {
     if (this.registerForm.valid) {
