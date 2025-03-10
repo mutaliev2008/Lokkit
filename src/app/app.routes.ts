@@ -5,7 +5,6 @@ import { ProfileComponent } from './features/profile/page/profile-component/prof
 import { authGuard } from './core/guards/auth.guard';
 import { LoginComponent } from './features/login/pages/login.component';
 import { RegisterComponent } from './features/register/pages/register.component';
-import { PostDetailsPageComponent } from './features/post/pages/post-details-page/post-details-page.component';
 
 export const routes: Routes = [
   {

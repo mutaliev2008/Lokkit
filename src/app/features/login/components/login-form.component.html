@@ -4,7 +4,7 @@
       <p class="decoration-text">Login</p>
     </div>
     <img class="login-logo" src="assets/icons/logo-big.svg" alt="" />
-    <form class="login-form" [formGroup]="loginForm">
+    <form class="login-form" novalidate [formGroup]="loginForm">
       <label class="login-label" for="email">
         <img src="assets/icons/email.svg" />
         <input
@@ -70,7 +70,7 @@
           <input type="checkbox" id="remember-me" />
           <label class="remember-me-label" for="remember-me">Remember me</label>
         </div>
-        <a class="login-links" href="#">Забыли пароль?</a>
+        <a class="login-links" href="">Забыли пароль?</a>
       </div>
       <button (click)="onSubmit()" type="submit" class="login-button">
         Login
@@ -79,17 +79,17 @@
     <div class="login-actions">
       <p>Don't have an account?</p>
       <div class="register-link">
-        <a routerLink="/register" class="login-links" href="#">Register</a>
+        <a routerLink="/register" class="login-links" href="">Register</a>
       </div>
     </div>
     <div class="social-network">
-      <a class="social-network-link network-link-Google" href="#"
+      <a class="social-network-link network-link-Google" href=""
         ><img src="assets/icons/G+.svg" alt=""
       /></a>
-      <a class="social-network-link network-link-VK" href="#"
+      <a class="social-network-link network-link-VK" href=""
         ><img src="assets/icons/VK.svg" alt=""
       /></a>
-      <a class="social-network-link network-link-Youtube" href="#"
+      <a class="social-network-link network-link-Youtube" href=""
         ><img src="assets/icons/Youtube.svg" alt=""
       /></a>
     </div>
