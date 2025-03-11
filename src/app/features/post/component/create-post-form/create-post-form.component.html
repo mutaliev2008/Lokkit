@@ -1,1 +1,32 @@
-<p>create-post-form works!</p>
+<div class="create-post-form-container">
+  <h2 class="create-post-title">Create Post</h2>
+  <form class="create-post-form">
+    <div class="create-post-inputs-container">
+      <label for="add-img" class="add-img-label">
+        <input type="add-img" id="add-img" class="add-img-input" />
+        <img
+          src="assets/icons/plus-gray.svg"
+          alt="gray-plus"
+          class="file-label-img"
+        />
+      </label>
+
+      <app-input
+        [inputPlaceHolder]="'Title'"
+        [inputIcons]="'assets/icons/pencil.svg'"
+      ></app-input>
+      <app-input
+        [inputPlaceHolder]="'Content'"
+        [inputIcons]="'assets/icons/pencil.svg'"
+      ></app-input>
+    </div>
+    <div class="create-post-buttons-container">
+      <button type="button" class="add-teg-btn create-post-button">
+        Add teg
+      </button>
+      <button type="button" class="create-post-btn create-post-button">
+        Create Post
+      </button>
+    </div>
+  </form>
+</div>
