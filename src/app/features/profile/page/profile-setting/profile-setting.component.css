@@ -38,7 +38,6 @@
   outline: 0;
   margin-top: 7px;
   align-self: end;
-  cursor: pointer;
   transition: background-color 0.5s ease, transform 0.5s ease;
 }
 

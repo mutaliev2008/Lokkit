@@ -67,7 +67,6 @@
   border: none;
   border-radius: 123px;
   font-size: 16px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
   margin-bottom: 14px;
 }

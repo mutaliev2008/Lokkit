@@ -48,7 +48,6 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.5s ease, transform 0.5s ease;
-  cursor: pointer;
 }
 
 .add-new-post:hover {

@@ -4,6 +4,7 @@
   background-color: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 20px;
+  margin: auto;
 }
 
 .create-post-form {
@@ -21,6 +22,7 @@
   border-radius: 20px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .add-img-input {
@@ -53,4 +55,29 @@
 }
 .add-teg-btn {
   background-color: transparent;
+}
+
+.tag {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 6px;
+  max-width: 140px;
+  display: block;
+}
+
+.tag-button {
+  border: 0;
+  background-color: transparent;
+}
+
+.tag-input {
+  border: 0;
+  outline: 0;
+  width: 100px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin: -15px 0px 0px 15px;
 }
