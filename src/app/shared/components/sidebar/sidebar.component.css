@@ -1,6 +1,5 @@
 .sidebar {
   width: 312px;
-  height: 100vh;
   background: #ffffff;
   padding: 24px 0;
   border: 1px solid #e2e8f0;
@@ -146,7 +145,6 @@ nav {
     right: 10px;
     background-color: transparent;
     border: 0;
-    cursor: pointer;
     font-size: 32px;
     color: #94a3b8;
   }
@@ -166,7 +164,6 @@ nav {
     line-height: 20px;
     color: #6e7191;
     padding: 0;
-    cursor: pointer;
   }
 
   .go-pro-button {
@@ -177,7 +174,6 @@ nav {
     padding: 0;
     line-height: 20px;
     color: #4f46e5;
-    cursor: pointer;
   }
 }
 
@@ -220,6 +216,5 @@ nav {
   border: 0;
   padding: 0;
   background-color: transparent;
-  cursor: pointer;
   margin-left: 85px;
 }

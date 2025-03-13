@@ -1,0 +1,90 @@
+<div class="create-post-form-container">
+  <h2 class="create-post-title">Create Post</h2>
+  <form class="create-post-form" novalidate [formGroup]="createPostForm">
+    <div class="create-post-inputs-container">
+      <label for="add-img" class="add-img-label">
+        <input type="file" id="add-img" class="add-img-input" />
+        <img
+          src="assets/icons/plus-gray.svg"
+          alt="gray-plus"
+          class="file-label-img"
+        />
+      </label>
+
+      <app-input
+        formControlName="title"
+        [inputPlaceHolder]="'Title'"
+        [inputIcons]="'assets/icons/pencil.svg'"
+      ></app-input>
+      @if(!createPostForm.controls.title.valid &&
+      createPostForm.controls['title'].touched){
+
+      <p
+        *ngIf="createPostForm.get(['title'])?.errors?.['required']"
+        class="error-message"
+      >
+        Title is required
+      </p>
+
+      <p
+        *ngIf="createPostForm.get(['title'])?.errors?.['minlength']"
+        class="error-message"
+      >
+        Minimum of 3 symbol
+      </p>
+      }
+      <app-input
+        formControlName="content"
+        [inputPlaceHolder]="'Content'"
+        [inputIcons]="'assets/icons/pencil.svg'"
+      ></app-input>
+      @if(!createPostForm.controls.content.valid &&
+      createPostForm.controls['content'].touched){
+      <p
+        *ngIf="createPostForm.get(['content'])?.errors?.['required']"
+        class="error-message"
+      >
+        Content is required
+      </p>
+      <p
+        *ngIf="createPostForm.get(['content'])?.errors?.['maxlength']"
+        class="error-message"
+      >
+        Maximum of 150 symbol
+      </p>
+      }
+    </div>
+
+    <div class="tags" formArrayName="tags">
+      @for (tag of tags.controls; track $index) {
+      <label class="tag" [for]="'tag-' + $index">
+        <input
+          class="tag-input"
+          [id]="'tag-' + $index"
+          [formControlName]="$index"
+        />
+        <button type="button" (click)="closeTag()" class="tag-button">
+          <img src="assets/icons/close.svg" alt="" />
+        </button>
+      </label>
+
+      }
+    </div>
+    <div class="create-post-buttons-container">
+      <button
+        (click)="addTeg()"
+        type="button"
+        class="add-teg-btn create-post-button"
+      >
+        Add teg
+      </button>
+      <button
+        (click)="onSubmit()"
+        type="button"
+        class="create-post-btn create-post-button"
+      >
+        Create Post
+      </button>
+    </div>
+  </form>
+</div>

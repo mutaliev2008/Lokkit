@@ -23,4 +23,8 @@ export class PostService {
       post.likes++;
     }
   }
+
+  createPost(data: any): void {
+    console.log(data);
+  }
 }

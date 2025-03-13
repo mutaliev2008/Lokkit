@@ -1,0 +1,83 @@
+.create-post-form-container {
+  max-width: 550px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.create-post-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.add-img-label {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  background-color: #ececec;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-img-input {
+  display: none;
+}
+
+.create-post-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-post-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-post-button {
+  border: 0;
+  border-radius: 20px;
+  width: 100%;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.create-post-btn {
+  background-color: #4f46e5;
+  color: #fff;
+}
+.add-teg-btn {
+  background-color: transparent;
+}
+
+.tag {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 6px;
+  max-width: 140px;
+  display: block;
+}
+
+.tag-button {
+  border: 0;
+  background-color: transparent;
+}
+
+.tag-input {
+  border: 0;
+  outline: 0;
+  width: 100px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin: -15px 0px 0px 15px;
+}

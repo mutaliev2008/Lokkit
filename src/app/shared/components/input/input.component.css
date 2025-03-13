@@ -2,7 +2,6 @@
   border: 0;
   padding: 0;
   background-color: transparent;
-  cursor: pointer;
 }
 
 .input-label {
@@ -25,6 +24,7 @@
   background: transparent;
   outline: 0;
   border: 0;
+  width: 90%;
 }
 
 .input::placeholder {

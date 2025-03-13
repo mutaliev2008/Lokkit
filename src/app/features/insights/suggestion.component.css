@@ -76,7 +76,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   width: 20px;
 }
 
@@ -128,7 +127,6 @@
   padding: 0;
   font-size: 20px;
   color: #6e7191;
-  cursor: pointer;
 }
 .more-options-img {
   width: 24px;

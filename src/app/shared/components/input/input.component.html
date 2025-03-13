@@ -4,8 +4,11 @@
     placeholder="{{ inputPlaceHolder }}"
     type="text"
     class="input"
+    [value]="value"
+    (input)="onInputChange($event)"
+    (blur)="onTouched()"
   />
-  <button (click)="toggleInputState()" class="activation-button">
+  <button type="button" (click)="toggleInputState()" class="activation-button">
     <img src="{{ inputIcons }}" alt="" />
   </button>
 </label>

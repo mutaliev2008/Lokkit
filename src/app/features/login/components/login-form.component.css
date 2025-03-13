@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   font-family: Arial, sans-serif;
-  width: 100vw;
   height: 100vh;
 }
 
@@ -75,7 +74,6 @@
   border: none;
   border-radius: 123px;
   font-size: 16px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
   margin: 14px 0;
 }

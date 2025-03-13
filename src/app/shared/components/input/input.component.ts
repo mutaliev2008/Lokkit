@@ -1,17 +1,57 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  forwardRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-input',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.css',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
-export class InputComponent {
+export class InputComponent implements ControlValueAccessor {
   inputState: boolean = false;
   @Input() inputPlaceHolder!: string;
   @Input() inputIcons?: string;
   @ViewChild('label') labelRef!: ElementRef;
   @ViewChild('input') inputRef!: ElementRef;
+  value: any = '';
+  onChange: any = () => {};
+  onTouched: any = () => {};
+
+  writeValue(obj: any): void {
+    this.value = obj;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  onInputChange(event: Event): void {
+    const target = event.target as HTMLInputElement | null;
+    if (target) {
+      this.value = target.value;
+      this.onChange(target.value);
+    }
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 
   ngAfterViewInit(): void {
     this.updateState();

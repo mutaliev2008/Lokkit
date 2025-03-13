@@ -12,5 +12,6 @@ export const validatePasswordConfirm: ValidatorFn = (
   if (form.value.password === form.value.confirmPassword) {
     return null;
   }
+
   return { passwordNotSame: true };
 };
