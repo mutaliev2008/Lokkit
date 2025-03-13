@@ -81,3 +81,9 @@
   font-size: 14px;
   margin: -15px 0px 0px 15px;
 }
+
+.image {
+  object-fit: cover;
+  height: 300px;
+  border-radius: 20px;
+}

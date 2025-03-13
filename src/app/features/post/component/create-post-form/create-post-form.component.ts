@@ -18,8 +18,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CreatePostFormComponent {
   postService = inject(PostService);
-
+  file: string = '';
   createPostForm = new FormGroup({
+    image: new FormControl(null),
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
     content: new FormControl('', [
       Validators.required,
@@ -27,6 +28,16 @@ export class CreatePostFormComponent {
     ]),
     tags: new FormArray([]),
   });
+
+  changeFile(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.file = URL.createObjectURL(file);
+      this.createPostForm.patchValue({
+        image: file,
+      });
+    }
+  }
 
   get tags() {
     return this.createPostForm.get('tags') as FormArray;
