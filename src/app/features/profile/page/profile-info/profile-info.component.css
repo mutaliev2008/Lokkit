@@ -129,3 +129,15 @@
 .profile-input-disabled::placeholder {
   color: #d0d0d0;
 }
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin: -15px 0px 0px 15px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
