@@ -11,33 +11,119 @@
     </div>
   </div>
   <div class="profile-inputs-container">
-    <div class="profile-info-inputs">
+    <form class="profile-info-inputs" [formGroup]="profileInfoForm">
       <h1 class="profile-inputs-title">Info</h1>
       <div class="user-name-inputs">
-        <app-input
-          [inputIcons]="'assets/icons/pencil.svg'"
-          [inputPlaceHolder]="'Last Name'"
-        ></app-input>
+        <div class="input-wrapper">
+          <app-input
+            formControlName="firstName"
+            [inputIcons]="'assets/icons/pencil.svg'"
+            [inputPlaceHolder]="'First Name'"
+          ></app-input>
 
-        <app-input
-          [inputIcons]="'assets/icons/pencil.svg'"
-          [inputPlaceHolder]="'FullName'"
-        ></app-input>
+          @if (profileInfoForm.controls.firstName.invalid &&
+          (profileInfoForm.controls.firstName.dirty ||
+          profileInfoForm.controls.firstName.touched)) {
+
+          <p
+            *ngIf="profileInfoForm.controls.firstName.errors?.['required']"
+            class="error-message"
+          >
+            First Name is required.
+          </p>
+          <p
+            *ngIf="profileInfoForm.controls.firstName.errors?.['lettersOnly']"
+            class="error-message"
+          >
+            First Name can contain only letters.
+          </p>
+          <p
+            *ngIf="profileInfoForm.controls.firstName.errors?.['minlength']"
+            class="error-message"
+          >
+            First Name must be at least 2 characters long.
+          </p>
+          <p
+            *ngIf="profileInfoForm.controls.firstName.errors?.['maxlength']"
+            class="error-message"
+          >
+            First Name cannot exceed 15 characters.
+          </p>
+          }
+        </div>
+        <div class="input-wrapper">
+          <app-input
+            formControlName="lastName"
+            [inputIcons]="'assets/icons/pencil.svg'"
+            [inputPlaceHolder]="'Last Name'"
+          ></app-input>
+
+          @if (profileInfoForm.controls.lastName.invalid &&
+          (profileInfoForm.controls.lastName.dirty ||
+          profileInfoForm.controls.lastName.touched)) {
+          <p
+            *ngIf="profileInfoForm.controls.firstName.errors?.['lettersOnly']"
+            class="error-message"
+          >
+            Last Name can contain only letters.
+          </p>
+          <p
+            *ngIf="profileInfoForm.controls.lastName.errors?.['required']"
+            class="error-message"
+          >
+            Last Name is required.
+          </p>
+          <p
+            *ngIf="profileInfoForm.controls.lastName.errors?.['minlength']"
+            class="error-message"
+          >
+            Last Name must be at least 2 characters long.
+          </p>
+          <p
+            *ngIf="profileInfoForm.controls.lastName.errors?.['maxlength']"
+            class="error-message"
+          >
+            Last Name cannot exceed 15 characters.
+          </p>
+          }
+        </div>
       </div>
 
       <app-input
+        formControlName="email"
         [inputIcons]="'assets/icons/pencil.svg'"
-        [inputPlaceHolder]="'City'"
+        [inputPlaceHolder]="'Email'"
       ></app-input>
+
+      @if (profileInfoForm.controls.email.invalid &&
+      (profileInfoForm.controls.email.dirty ||
+      profileInfoForm.controls.email.touched)) { @if
+      (profileInfoForm.controls.email.errors?.['required']) {
+      <p class="error-message">Email is required.</p>
+      } @if (profileInfoForm.controls.email.errors?.['email']) {
+      <p class="error-message">Please enter a valid email address.</p>
+      } }
 
       <app-input
+        formControlName="bio"
         [inputIcons]="'assets/icons/pencil.svg'"
-        [inputPlaceHolder]="'Story'"
+        [inputPlaceHolder]="'Bio'"
       ></app-input>
 
-      <button class="save-btn">Save</button>
-    </div>
-    <div class="profile-password-inputs">
+      @if (profileInfoForm.controls.bio.invalid &&
+      (profileInfoForm.controls.bio.dirty ||
+      profileInfoForm.controls.bio.touched)) { @if
+      (profileInfoForm.controls.bio.errors?.['required']) {
+      <p class="error-message">Bio is required.</p>
+      } @if (profileInfoForm.controls.bio.errors?.['minlength']) {
+      <p class="error-message">Bio must be at least 20 characters long.</p>
+      } @if (profileInfoForm.controls.bio.errors?.['maxlength']) {
+      <p class="error-message">Bio cannot exceed 150 characters.</p>
+      } }
+
+      <button (click)="updateProfile()" class="save-btn">Save</button>
+    </form>
+    <form class="profile-password-inputs">
       <h1 class="profile-password-title">Password</h1>
       <app-input
         [inputIcons]="'assets/icons/pencil.svg'"
@@ -55,6 +141,6 @@
       ></app-input>
 
       <button class="save-btn">Save</button>
-    </div>
+    </form>
   </div>
 </section>
