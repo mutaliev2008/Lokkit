@@ -22,6 +22,7 @@ export class EditPostFormComponent {
   postService = inject(PostService);
   route = inject(ActivatedRoute);
   postId!: number;
+  file: string | undefined = '';
 
   editPostForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -35,6 +36,7 @@ export class EditPostFormComponent {
 
   ngOnInit(): void {
     this.postId = +this.route.snapshot.paramMap.get('id')!;
+    this.uploadingData();
   }
 
   editPost() {
@@ -64,6 +66,24 @@ export class EditPostFormComponent {
         content: post.post_content,
         image: post.post_image,
       });
+      this.file = post.post_image;
     }
+  }
+
+  changeFile(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.file = URL.createObjectURL(file);
+      this.editPostForm.patchValue({
+        image: file,
+      });
+    }
+  }
+  addTeg(): void {
+    this.tags.push(new FormControl('', Validators.required));
+  }
+
+  closeTag(): void {
+    this.tags.removeAt(this.tags.length - 1);
   }
 }
