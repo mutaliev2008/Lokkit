@@ -1,4 +1,4 @@
-.create-post-form-container {
+.edit-post-form-container {
   max-width: 550px;
   padding: 20px;
   background-color: #fff;
@@ -7,7 +7,7 @@
   margin: auto;
 }
 
-.create-post-form {
+.edit-post-form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -29,19 +29,19 @@
   display: none;
 }
 
-.create-post-inputs-container {
+.edit-post-inputs-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.create-post-buttons-container {
+.edit-post-buttons-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.create-post-button {
+.edit-post-button {
   border: 0;
   border-radius: 20px;
   width: 100%;
@@ -49,12 +49,19 @@
   font-weight: 700;
 }
 
-.create-post-btn {
+.edit-post-btn {
   background-color: #4f46e5;
   color: #fff;
 }
 .add-teg-btn {
   background-color: transparent;
+}
+
+.tags {
+  flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .tag {
@@ -80,6 +87,12 @@
   color: red;
   font-size: 14px;
   margin: -15px 0px 0px 15px;
+}
+
+.error-message-tag {
+  color: red;
+  font-size: 14px;
+  margin: 0px 0px 0px 10px;
 }
 
 .image {

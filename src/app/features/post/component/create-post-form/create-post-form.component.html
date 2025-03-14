@@ -3,13 +3,22 @@
   <form class="create-post-form" novalidate [formGroup]="createPostForm">
     <div class="create-post-inputs-container">
       <label for="add-img" class="add-img-label">
-        <input type="file" id="add-img" class="add-img-input" />
+        <input
+          (change)="changeFile($event)"
+          type="file"
+          id="add-img"
+          class="add-img-input"
+        />
         <img
           src="assets/icons/plus-gray.svg"
           alt="gray-plus"
           class="file-label-img"
         />
       </label>
+
+      @if(file){
+      <img class="image" [src]="file" alt="" />
+      }
 
       <app-input
         formControlName="title"
