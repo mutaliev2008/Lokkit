@@ -1,7 +1,9 @@
 export interface User {
   id: number;
-  name: string;
   email: string;
   avatar: string;
   isActive: boolean;
+  bio: string;
+  firstName: string;
+  lastName: string;
 }
