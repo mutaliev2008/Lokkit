@@ -10,6 +10,7 @@ export const postsData: Post[] = [
     userAvatar:
       'https://avatars.mds.yandex.net/i?id=f4153aaa9961c73e5f9548a1575b4462_l-7450098-images-thumbs&n=13',
     role: 'Дизайнер продуктов',
+    title: 'Лучший дизайн',
     post_image:
       'https://avatars.mds.yandex.net/i?id=1478920f8b60ff44ba76782e055fb1a0ea9b73d1-8474988-images-thumbs&n=13',
     post_content:
@@ -63,6 +64,7 @@ export const postsData: Post[] = [
     userAvatar:
       'https://avatars.mds.yandex.net/i?id=cbd80f5d76ac6ac3599ba4f60401a06ee6b35f19-10842658-images-thumbs&n=13',
     role: 'Футболист',
+    title: 'Лучший футболист',
     post_image:
       'https://avatars.mds.yandex.net/i?id=75bddd3fedc67219e1639b7080d1c2c53df6559c-10808639-images-thumbs&n=13',
     post_content:
@@ -91,6 +93,7 @@ export const postsData: Post[] = [
     role: 'Frontend-разработчик',
     userAvatar:
       'https://avatars.mds.yandex.net/i?id=9f55625213a58aaf8d7967d5713155e90ecbca7f-5221961-images-thumbs&n=13',
+    title: 'Лучшая работа',
     post_image: '',
     post_content:
       'Сегодня закончил работу над новым проектом. Очень горжусь результатом! Вдохновение приходит, когда видишь, как твой код оживает на экране.',
