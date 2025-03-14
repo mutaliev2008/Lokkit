@@ -2,6 +2,7 @@ import { PostComment } from './post-comment.model';
 
 export interface Post {
   id: number;
+  title: string;
   authorId: number;
   secondName: string;
   firstName: string;
