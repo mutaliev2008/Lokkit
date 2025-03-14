@@ -57,6 +57,13 @@
   background-color: transparent;
 }
 
+.tags {
+  flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .tag {
   border: 1px solid #e2e8f0;
   border-radius: 20px;
@@ -80,6 +87,12 @@
   color: red;
   font-size: 14px;
   margin: -15px 0px 0px 15px;
+}
+
+.error-message-tag {
+  color: red;
+  font-size: 14px;
+  margin: 0px 0px 0px 10px;
 }
 
 .image {
