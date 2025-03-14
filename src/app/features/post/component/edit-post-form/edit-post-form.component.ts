@@ -11,6 +11,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { InputComponent } from '../../../../shared/components/input/input.component';
 import { CommonModule } from '@angular/common';
+import { hashtagValidator } from '../../validators/hashtag-validator';
 
 @Component({
   selector: 'app-edit-post-form',
@@ -80,10 +81,12 @@ export class EditPostFormComponent {
     }
   }
   addTeg(): void {
-    this.tags.push(new FormControl('', Validators.required));
+    this.tags.push(
+      new FormControl('', [Validators.required, hashtagValidator()])
+    );
   }
 
-  closeTag(): void {
-    this.tags.removeAt(this.tags.length - 1);
+  closeTag(index: number) {
+    this.tags.removeAt(index);
   }
 }
