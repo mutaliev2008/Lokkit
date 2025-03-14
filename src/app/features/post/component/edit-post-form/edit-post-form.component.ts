@@ -1,11 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { PostService } from '../../../../core/services/post.service';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { InputComponent } from '../../../../shared/components/input/input.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-post-form',
-  imports: [],
+  imports: [InputComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './edit-post-form.component.html',
   styleUrl: './edit-post-form.component.css',
 })

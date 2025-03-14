@@ -1,1 +1,99 @@
-<p>edit-post-form works!</p>
+<div class="edit-post-form-container">
+  <h2 class="edit-post-title">Edit Post</h2>
+  <form class="edit-post-form" novalidate [formGroup]="editPostForm">
+    <div class="edit-post-inputs-container">
+      <label for="add-img" class="add-img-label">
+        <input
+          (change)="changeFile($event)"
+          type="file"
+          id="add-img"
+          class="add-img-input"
+        />
+        <img
+          src="assets/icons/plus-gray.svg"
+          alt="gray-plus"
+          class="file-label-img"
+        />
+      </label>
+
+      @if(file){
+      <img class="image" [src]="file" alt="" />
+      }
+
+      <app-input
+        formControlName="title"
+        [inputPlaceHolder]="'Title'"
+        [inputIcons]="'assets/icons/pencil.svg'"
+      ></app-input>
+      @if(!editPostForm.controls.title.valid &&
+      editPostForm.controls['title'].touched){
+
+      <p
+        *ngIf="editPostForm.get(['title'])?.errors?.['required']"
+        class="error-message"
+      >
+        Title is required
+      </p>
+
+      <p
+        *ngIf="editPostForm.get(['title'])?.errors?.['minlength']"
+        class="error-message"
+      >
+        Minimum of 3 symbol
+      </p>
+      }
+      <app-input
+        formControlName="content"
+        [inputPlaceHolder]="'Content'"
+        [inputIcons]="'assets/icons/pencil.svg'"
+      ></app-input>
+      @if(!editPostForm.controls.content.valid &&
+      editPostForm.controls['content'].touched){
+      <p
+        *ngIf="editPostForm.get(['content'])?.errors?.['required']"
+        class="error-message"
+      >
+        Content is required
+      </p>
+      <p
+        *ngIf="editPostForm.get(['content'])?.errors?.['maxlength']"
+        class="error-message"
+      >
+        Maximum of 150 symbol
+      </p>
+      }
+    </div>
+
+    <div class="tags" formArrayName="tags">
+      @for (tag of tags.controls; track $index) {
+      <label class="tag" [for]="'tag-' + $index">
+        <input
+          class="tag-input"
+          [id]="'tag-' + $index"
+          [formControlName]="$index"
+        />
+        <button type="button" (click)="closeTag()" class="tag-button">
+          <img src="assets/icons/close.svg" alt="" />
+        </button>
+      </label>
+
+      }
+    </div>
+    <div class="edit-post-buttons-container">
+      <button
+        (click)="addTeg()"
+        type="button"
+        class="add-teg-btn edit-post-button"
+      >
+        Add teg
+      </button>
+      <button
+        (click)="onSubmit()"
+        type="button"
+        class="edit-post-btn edit-post-button"
+      >
+        Edit Post
+      </button>
+    </div>
+  </form>
+</div>
