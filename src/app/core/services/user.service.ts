@@ -19,10 +19,16 @@ export class UserService {
     this.activeUser = this.users.find((user) => user.isActive);
     return this.activeUser;
   }
-  updateUser(id: number, userData: Partial<User>) {
-    this.users = this.users.map((user) =>
-      user.id === id ? { ...user, ...userData } : user
-    );
+
+  updateUser(id: number, data: any): void {
+    const user = this.getUserById(id);
+    if (user) {
+      user.firstName = data.firstName;
+      user.bio = data.bio;
+      user.avatar = data.avatar;
+      user.lastName = data.lastName;
+      user.email = data.email;
+    }
   }
   switchUser(id: number): void {
     this.users = this.users.map((user) => ({
