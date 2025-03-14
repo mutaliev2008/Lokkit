@@ -66,17 +66,25 @@
 
     <div class="tags" formArrayName="tags">
       @for (tag of tags.controls; track $index) {
-      <label class="tag" [for]="'tag-' + $index">
-        <input
-          class="tag-input"
-          [id]="'tag-' + $index"
-          [formControlName]="$index"
-        />
-        <button type="button" (click)="closeTag()" class="tag-button">
-          <img src="assets/icons/close.svg" alt="" />
-        </button>
-      </label>
-
+      <div class="tag-wrapper">
+        <label class="tag" [for]="'tag-' + $index">
+          <input
+            class="tag-input"
+            [id]="'tag-' + $index"
+            [formControlName]="$index"
+          />
+          <button type="button" (click)="closeTag($index)" class="tag-button">
+            <img src="assets/icons/close.svg" alt="" />
+          </button>
+        </label>
+        @if( editPostForm.controls['tags'].touched ){}
+        <p *ngIf="tag.errors?.['hashtag']" class="error-message-tag">
+          The # is required
+        </p>
+        <p *ngIf="tag.errors?.['required']" class="error-message-tag">
+          Tag is required
+        </p>
+      </div>
       }
     </div>
     <div class="edit-post-buttons-container">
