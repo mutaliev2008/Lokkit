@@ -1,18 +1,20 @@
-import { PostComment } from './post-comment.model';
+import { User } from './user.model';
 
 export interface Post {
   id: number;
+  author: User;
   title: string;
-  authorId: number;
-  secondName: string;
-  firstName: string;
-  userName: string;
-  userAvatar: string;
-  role?: string;
-  post_image?: string;
-  post_content?: string;
-  hashtags?: string[];
+  content: string;
+  image?: string;
   likes: number;
-  comments: PostComment[];
-  shares: number;
+  comments: Comment[];
+  date: Date;
+  tags: string[];
+}
+
+export interface Comment {
+  id: number;
+  author: User;
+  content: string;
+  date: string;
 }

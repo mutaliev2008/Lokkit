@@ -1,10 +1,10 @@
 <article class="post">
   <div class="post-header">
     <div class="post-user-data">
-      <img class="post-user-image" src="{{ post.userAvatar }}" alt="" />
+      <img class="post-user-image" src="{{ post.author.avatar }}" alt="" />
       <div class="post-user-info">
         <h2 class="post-user-name">{{ post | userName }}</h2>
-        <p class="post-user-about">{{ post.role }}</p>
+        <p class="post-user-about">{{ post.author.role }}</p>
       </div>
     </div>
     <button
@@ -16,17 +16,12 @@
   </div>
   <div class="post-content">
     <p class="post-text">
-      {{ post.post_content | cutTextPipe : 100 : "..." }}
-      <span *ngFor="let hashtag of post.hashtags" class="post-hashtags">{{
+      {{ post.content | cutTextPipe : 100 : "..." }}
+      <span *ngFor="let hashtag of post.tags" class="post-hashtags">{{
         hashtag
       }}</span>
     </p>
-    <img
-      *ngIf="post.post_image"
-      class="post-image"
-      src="{{ post.post_image }}"
-      alt=""
-    />
+    <img *ngIf="post.image" class="post-image" src="{{ post.image }}" alt="" />
     <div class="post-actions">
       <ul class="actions-container">
         <li class="actions-li">
@@ -45,7 +40,7 @@
           <button class="post-button">
             <img src="assets/icons/share-fat.svg" alt="" />
           </button>
-          <p class="post-share-count">{{ post.shares }} Share</p>
+          <p class="post-share-count">300 Share</p>
         </li>
       </ul>
 
@@ -60,13 +55,13 @@
         <li class="comment">
           <img
             class="comment-user-image"
-            src="{{ comment.userAvatar }}"
+            src="{{ comment.author.avatar }}"
             alt=""
           />
           <div class="comment-content">
-            <h3 class="comment-user-name">{{ comment.userName }}</h3>
+            <h3 class="comment-user-name">{{ comment.author.username }}</h3>
             <p class="comment-text">{{ comment.content }}</p>
-            <p class="comment-date">{{ comment.createdAt }}</p>
+            <p class="comment-date">{{ comment.date }}</p>
           </div>
         </li>
       </ul>

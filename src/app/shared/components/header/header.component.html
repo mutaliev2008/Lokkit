@@ -36,8 +36,8 @@
       </a>
     </nav>
     <img
-      [routerLink]="['profile', userService.activeUser?.id]"
-      src="https://avatars.mds.yandex.net/i?id=7420abb30a547d6f0feaf134481efaf623786301-11413071-images-thumbs&n=13"
+      [routerLink]="['profile', userService.activeUser.id]"
+      src="{{ userService.activeUser.avatar }}"
       alt=""
       class="user-avatar"
     />

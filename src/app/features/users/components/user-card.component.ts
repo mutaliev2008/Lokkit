@@ -3,6 +3,7 @@ import { UserService } from '../../../core/services/user.service';
 import { CommonModule } from '@angular/common';
 import { User } from '../../../core/models/user.model';
 import { SubscribeActiveButtonDirective } from '../../../shared/directives/subscribe-active-button.directive';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-card',
@@ -13,10 +14,11 @@ import { SubscribeActiveButtonDirective } from '../../../shared/directives/subsc
 export class UserCardComponent {
   @Input() user!: User;
   buttonState: boolean = false;
+  users!: any;
 
   userService = inject(UserService);
   ngOnInit(): void {
-    this.userService.getAllUsers();
+    this.users = this.userService.getAllUsers().subscribe();
   }
 
   toggleButton(): void {

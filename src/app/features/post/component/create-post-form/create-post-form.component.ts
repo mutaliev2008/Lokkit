@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../../../core/services/user.service';
 
 @Component({
   selector: 'app-create-post-form',
@@ -18,6 +19,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CreatePostFormComponent {
   postService = inject(PostService);
+  userService = inject(UserService);
+
   file: string = '';
   createPostForm = new FormGroup({
     image: new FormControl(null),
@@ -52,8 +55,11 @@ export class CreatePostFormComponent {
   }
 
   onSubmit(): void {
-    if (this.createPostForm.valid) {
-      this.postService.createPost(this.createPostForm.value);
+    if (this.createPostForm.valid && this.userService.activeUser) {
+      this.postService.createPost(
+        this.createPostForm.value,
+        this.userService.activeUser
+      );
     }
   }
 }

@@ -16,35 +16,35 @@
       <div class="user-name-inputs">
         <div class="input-wrapper">
           <app-input
-            formControlName="firstName"
+            formControlName="fullName"
             [inputIcons]="'assets/icons/pencil.svg'"
             [inputPlaceHolder]="'First Name'"
           ></app-input>
 
-          @if (profileInfoForm.controls.firstName.invalid &&
-          (profileInfoForm.controls.firstName.dirty ||
-          profileInfoForm.controls.firstName.touched)) {
+          @if (profileInfoForm.controls.fullName.invalid &&
+          (profileInfoForm.controls.fullName.dirty ||
+          profileInfoForm.controls.fullName.touched)) {
 
           <p
-            *ngIf="profileInfoForm.controls.firstName.errors?.['required']"
+            *ngIf="profileInfoForm.controls.fullName.errors?.['required']"
             class="error-message"
           >
             First Name is required.
           </p>
           <p
-            *ngIf="profileInfoForm.controls.firstName.errors?.['lettersOnly']"
+            *ngIf="profileInfoForm.controls.fullName.errors?.['lettersOnly']"
             class="error-message"
           >
             First Name can contain only letters.
           </p>
           <p
-            *ngIf="profileInfoForm.controls.firstName.errors?.['minlength']"
+            *ngIf="profileInfoForm.controls.fullName.errors?.['minlength']"
             class="error-message"
           >
             First Name must be at least 2 characters long.
           </p>
           <p
-            *ngIf="profileInfoForm.controls.firstName.errors?.['maxlength']"
+            *ngIf="profileInfoForm.controls.fullName.errors?.['maxlength']"
             class="error-message"
           >
             First Name cannot exceed 15 characters.
@@ -53,34 +53,34 @@
         </div>
         <div class="input-wrapper">
           <app-input
-            formControlName="lastName"
+            formControlName="username"
             [inputIcons]="'assets/icons/pencil.svg'"
             [inputPlaceHolder]="'Last Name'"
           ></app-input>
 
-          @if (profileInfoForm.controls.lastName.invalid &&
-          (profileInfoForm.controls.lastName.dirty ||
-          profileInfoForm.controls.lastName.touched)) {
+          @if (profileInfoForm.controls.username.invalid &&
+          (profileInfoForm.controls.username.dirty ||
+          profileInfoForm.controls.username.touched)) {
           <p
-            *ngIf="profileInfoForm.controls.firstName.errors?.['lettersOnly']"
+            *ngIf="profileInfoForm.controls.username.errors?.['lettersOnly']"
             class="error-message"
           >
             Last Name can contain only letters.
           </p>
           <p
-            *ngIf="profileInfoForm.controls.lastName.errors?.['required']"
+            *ngIf="profileInfoForm.controls.username.errors?.['required']"
             class="error-message"
           >
             Last Name is required.
           </p>
           <p
-            *ngIf="profileInfoForm.controls.lastName.errors?.['minlength']"
+            *ngIf="profileInfoForm.controls.username.errors?.['minlength']"
             class="error-message"
           >
             Last Name must be at least 2 characters long.
           </p>
           <p
-            *ngIf="profileInfoForm.controls.lastName.errors?.['maxlength']"
+            *ngIf="profileInfoForm.controls.username.errors?.['maxlength']"
             class="error-message"
           >
             Last Name cannot exceed 15 characters.

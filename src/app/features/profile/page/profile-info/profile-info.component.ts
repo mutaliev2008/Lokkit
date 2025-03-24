@@ -19,19 +19,18 @@ import { OnlyLettersValidator } from '../../validators/only-letters-validator';
 export class ProfileInfoComponent {
   userService = inject(UserService);
   ngOnInit(): void {
-    this.userService.getAllUsers();
-    this.userService.getActiveUser();
+    this.userService.getAllUsers().subscribe();
     this.uploadingData();
   }
 
   profileInfoForm = new FormGroup({
-    firstName: new FormControl('', [
+    fullName: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(15),
       OnlyLettersValidator(),
     ]),
-    lastName: new FormControl('', [
+    username: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(15),
@@ -49,10 +48,10 @@ export class ProfileInfoComponent {
   uploadingData() {
     if (this.userService.activeUser) {
       this.profileInfoForm.patchValue({
-        firstName: this.userService.activeUser.firstName,
-        lastName: this.userService.activeUser.lastName,
+        fullName: this.userService.activeUser.fullName,
+        username: this.userService.activeUser.username,
         email: this.userService.activeUser.email,
-        bio: this.userService.activeUser.bio,
+        bio: this.userService.activeUser.story,
         avatar: this.userService.activeUser.avatar,
       });
     }
@@ -60,13 +59,10 @@ export class ProfileInfoComponent {
 
   updateProfile() {
     if (this.profileInfoForm.valid) {
-      this.userService.updateUser(this.userService.activeUser!.id, {
-        firstName: this.profileInfoForm.value.firstName!,
-        lastName: this.profileInfoForm.value.lastName!,
-        email: this.profileInfoForm.value.email!,
-        bio: this.profileInfoForm.value.bio!,
-        avatar: this.profileInfoForm.value.avatar!,
-      });
+      this.userService.updateUser(
+        this.userService.activeUser!.id,
+        this.profileInfoForm.value
+      );
       this.uploadingData();
     }
   }

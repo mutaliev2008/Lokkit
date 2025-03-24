@@ -42,12 +42,7 @@ export class EditPostFormComponent {
 
   editPost() {
     if (this.editPostForm.valid) {
-      this.postService.editPost(this.postId, {
-        title: this.editPostForm.value.title!,
-        post_content: this.editPostForm.value.content!,
-        post_image: this.editPostForm.value.image!,
-        hashtags: this.editPostForm.value.tags || [],
-      });
+      this.postService.editPost(this.postId, this.editPostForm.value);
     }
   }
 
@@ -59,15 +54,15 @@ export class EditPostFormComponent {
     if (post) {
       this.tags.clear();
 
-      if (post.hashtags) {
-        post.hashtags.forEach((tag) => this.tags.push(new FormControl(tag)));
+      if (post.tags) {
+        post.tags.forEach((tag) => this.tags.push(new FormControl(tag)));
       }
       this.editPostForm.patchValue({
         title: post.title,
-        content: post.post_content,
-        image: post.post_image,
+        content: post.content,
+        image: post.image,
       });
-      this.file = post.post_image;
+      this.file = post.image;
     }
   }
 

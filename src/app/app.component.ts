@@ -14,19 +14,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    FeedComponent,
-    ProfileComponent,
-    CommonModule,
-    LoginFormComponent,
-    RegisterFormComponent,
-    SidebarComponent,
-    HeaderComponent,
-    SuggestionComponent,
-    UsersPageComponent,
-    ProfileSettingComponent,
-    RouterOutlet,
-  ],
+  imports: [CommonModule, SidebarComponent, HeaderComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

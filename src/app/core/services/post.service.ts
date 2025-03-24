@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
-import { postsData } from '../data/post-data';
-import { PostData } from '../models/post-data.models';
+import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  posts: Post[] = postsData;
-
+  posts: Post[] = [];
+  router = inject(Router);
   getPosts(): Post[] {
-    this.posts = [...postsData];
     return this.posts;
   }
 
@@ -25,18 +24,7 @@ export class PostService {
     }
   }
 
-  createPost(data: any): void {
-    console.log(data);
-  }
+  createPost(data: any, activeUser: User): void {}
 
-  editPost(id: number, data: PostData): void {
-    const post = this.getPostById(id);
-    if (post) {
-      post.title = data.title;
-      post.post_content = data.post_content;
-      post.post_image = data.post_image;
-      post.hashtags = data.hashtags;
-      console.log('Post edit');
-    }
-  }
+  editPost(id: number, data: any): void {}
 }
