@@ -10,6 +10,7 @@ import {
   throwError,
 } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { API_URL } from '../api-url';
 
 @Injectable({
   providedIn: 'root',
@@ -31,10 +32,9 @@ export class UserService {
   };
   private usersSubject$ = new BehaviorSubject<User[]>([]);
   public readonly users$ = this.usersSubject$.asObservable();
-  private apiUrl = 'http://localhost:3000/users';
 
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}`).pipe(
+    return this.http.get<User[]>(`${API_URL}/users`).pipe(
       delay(500),
       retry(2),
       tap((res) => {
