@@ -4,7 +4,7 @@ export interface User {
   username: string;
   email: string;
   password?: string;
-  avatar: string;
+  avatar?: string;
   gender: UserGender;
   role: UserRole;
   joined?: string;
