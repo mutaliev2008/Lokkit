@@ -17,64 +17,97 @@ import { API_URL } from '../api-url';
 })
 export class UserService {
   private readonly http = inject(HttpClient);
-  activeUser: User = {
-    id: 123047568,
-    fullName: 'Ahmed Gazdiev',
-    username: 'ahm_gazdiev',
-    email: 'ahm.gazdiev@example.com',
-    password: 'abc123',
-    avatar: 'https://cdn.jsdelivr.net/gh/alohe/memojis/png/memo_23.png',
-    gender: 'male',
-    role: 'admin',
-    joined: '2023-01-01T00:00:00Z',
-    city: 'Venna',
-    story: 'I love coding and exploring new technologies.',
-  };
+
   private usersSubject$ = new BehaviorSubject<User[]>([]);
   public readonly users$ = this.usersSubject$.asObservable();
+  activeUser: User = {
+    id: 65464747458,
+    fullName: 'Grace Lee',
+    username: 'gracel',
+    email: 'grace@example.com',
+    password: 'jkl456',
+    avatar: 'https://cdn.jsdelivr.net/gh/alohe/memojis/png/memo_31.png',
+    gender: 'female',
+    role: 'user',
+    joined: '2023-08-01T00:00:00Z',
+    city: 'Seoul',
+    story: 'I am a foodie and love cooking new recipes.',
+  };
 
-  getAllUsers(): Observable<User[]> {
+  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users`).pipe(
       delay(500),
       retry(2),
       tap((res) => {
         this.usersSubject$.next(res);
+        console.log(this.usersSubject$.value);
         catchError((error: HttpErrorResponse) => {
-          console.error('Server returned:', error.error);
+          console.error('Не удалось вернуть пользователей', error.error);
           throw error;
         });
       })
     );
   }
 
-  getUserById(id: number) {}
+  getUserById(id: number | string): Observable<User> {
+    return this.http.get<User>(`${API_URL}/users/${String(id)}`).pipe(
+      delay(500),
+      retry(2),
+      catchError((error: HttpErrorResponse) => {
+        console.error('Не удалось вернуть пользователей', error.error);
+        return throwError(() => new Error('Не удалось вернуть пользователей'));
+      })
+    );
+  }
 
-  getActiveUser() {}
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(`${API_URL}/users`, user).pipe(
+      delay(500),
+      retry(2),
+      tap((newUser) => {
+        this.usersSubject$.next({ ...this.usersSubject$.value, ...newUser });
+      }),
+      catchError((error: HttpErrorResponse) => {
+        console.error('Не удалось создать пользователя', error.error);
+        return throwError(() => new Error('Не удалось создать пользователя'));
+      })
+    );
+  }
+  deleteUser(id: number | string): Observable<void> {
+    const userExists = this.usersSubject$.value.filter(
+      (user) => user.id === id
+    );
 
-  updateUser(id: number, data: any): void {}
+    if (!userExists) {
+      return throwError(() => new Error('Пользователь не найден'));
+    }
 
-  switchUser(id: number): void {}
-  // private handleError(error: HttpErrorResponse): Observable<never> {
-  //   let errorMessage: string;
+    return this.http.delete<void>(`${API_URL}/users/${String(id)}`).pipe(
+      tap(() => {
+        const currentUsers = this.usersSubject$.value;
+        this.usersSubject$.next(currentUsers.filter((user) => user.id !== id));
+      }),
+      catchError((error) => {
+        console.error('Ошибка удаления:', error);
+        return throwError(() => new Error('Не удалось удалить пользователя'));
+      })
+    );
+  }
 
-  //   if (error.error instanceof ErrorEvent) {
-  //     // Клиентская ошибка или ошибка сети
-  //     errorMessage = `Клиентская ошибка: ${error.error.message}`;
-  //   } else if (error.status === 0) {
-  //     // Ошибка соединения (например, нет интернета)
-  //     errorMessage =
-  //       'Нет соединения с сервером. Проверьте подключение к интернету.';
-  //   } else {
-  //     // Серверная ошибка
-  //     errorMessage = `Серверная ошибка: ${error.status}\nСообщение: ${
-  //       error.message
-  //     }\nДетали: ${error.error?.message || 'Нет дополнительной информации'}`;
-  //   }
-
-  //   // Логирование ошибки в консоль (или отправка на сервер для анализа)
-  //   console.error('Произошла ошибка:', errorMessage, error);
-
-  //   // Возвращаем ошибку как Observable
-  //   return throwError(() => new Error(errorMessage));
-  // }
+  updateUser(id: number, updates: Partial<any>): Observable<User> {
+    return this.http.patch<User>(`${API_URL}/users/${id}`, updates).pipe(
+      delay(500),
+      retry(2),
+      tap((updatedUser) => {
+        const users = this.usersSubject$.value.map((user) =>
+          user.id === id ? { ...user, ...updatedUser } : user
+        );
+        this.usersSubject$.next(users);
+      }),
+      catchError((error) => {
+        console.error('Ошибка обновления:', error);
+        return throwError(() => new Error('Не удалось обновить пользователя'));
+      })
+    );
+  }
 }
