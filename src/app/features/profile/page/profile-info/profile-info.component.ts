@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { OnlyLettersValidator } from '../../validators/only-letters-validator';
+import { switchMap, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-profile-info',
@@ -19,8 +20,14 @@ import { OnlyLettersValidator } from '../../validators/only-letters-validator';
 export class ProfileInfoComponent {
   userService = inject(UserService);
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe();
-    this.uploadingData();
+    this.userService.getUsers().subscribe();
+    this.profileInfoForm.patchValue({
+      fullName: this.userService.activeUser.fullName,
+      username: this.userService.activeUser.username,
+      email: this.userService.activeUser.email,
+      bio: this.userService.activeUser.story,
+      avatar: this.userService.activeUser.avatar,
+    });
   }
 
   profileInfoForm = new FormGroup({
@@ -45,25 +52,11 @@ export class ProfileInfoComponent {
     avatar: new FormControl(''),
   });
 
-  uploadingData() {
-    if (this.userService.activeUser) {
-      this.profileInfoForm.patchValue({
-        fullName: this.userService.activeUser.fullName,
-        username: this.userService.activeUser.username,
-        email: this.userService.activeUser.email,
-        bio: this.userService.activeUser.story,
-        avatar: this.userService.activeUser.avatar,
-      });
-    }
-  }
-
   updateProfile() {
     if (this.profileInfoForm.valid) {
-      this.userService.updateUser(
-        this.userService.activeUser!.id,
-        this.profileInfoForm.value
-      );
-      this.uploadingData();
+      this.userService
+        .updateUser(this.userService.activeUser!.id, this.profileInfoForm.value)
+        .subscribe();
     }
   }
 }

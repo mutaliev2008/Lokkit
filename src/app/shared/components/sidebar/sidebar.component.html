@@ -75,6 +75,7 @@
         src="{{ userService.activeUser.avatar }}"
         alt="User Avatar"
         class="avatar"
+        *ngIf="userService.activeUser.avatar"
       />
       <div class="user-info">
         <h2 class="user-name">

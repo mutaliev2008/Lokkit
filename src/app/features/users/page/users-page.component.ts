@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-page',
-  imports: [UserCardComponent, CommonModule, NgFor],
+  imports: [UserCardComponent, CommonModule],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.css',
 })
@@ -15,6 +15,6 @@ export class UsersPageComponent {
   userService = inject(UserService);
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe();
+    this.userService.getUsers().subscribe();
   }
 }

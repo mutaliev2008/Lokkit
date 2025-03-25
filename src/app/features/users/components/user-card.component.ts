@@ -14,12 +14,6 @@ import { Observable } from 'rxjs';
 export class UserCardComponent {
   @Input() user!: User;
   buttonState: boolean = false;
-  users!: any;
-
-  userService = inject(UserService);
-  ngOnInit(): void {
-    this.users = this.userService.getAllUsers().subscribe();
-  }
 
   toggleButton(): void {
     this.buttonState = !this.buttonState;
