@@ -10,12 +10,7 @@ import { AuthService } from '../../../core/services/auth.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   userService = inject(UserService);
   authService = inject(AuthService);
-
-  ngOnInit() {
-    this.userService.getAllUsers();
-    this.userService.getActiveUser();
-  }
 }

@@ -6,9 +6,9 @@ import { Post } from '../../core/models/post.model';
 })
 export class UserNamePipe implements PipeTransform {
   transform(value: Post): string {
-    if (!value.firstName || !value.secondName) {
-      return '@' + value.userName;
+    if (!value.author.fullName) {
+      return '@' + value.author.username;
     }
-    return value.firstName + ' ' + value.secondName;
+    return value.author.fullName;
   }
 }

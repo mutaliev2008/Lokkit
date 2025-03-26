@@ -8,6 +8,7 @@ import {
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginFormComponent {
   authService = inject(AuthService);
+  userService = inject(UserService);
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [

@@ -1,7 +1,8 @@
 <main class="users-container">
   <h1 class="users-title">Users</h1>
-  <app-user-card
-    *ngFor="let user of userService.users"
-    [user]="user"
-  ></app-user-card>
+  @for (user of userService.users$ | async; track $index) {
+  <app-user-card [user]="user" />
+  } @empty {
+  <p>No users found</p>
+  }
 </main>

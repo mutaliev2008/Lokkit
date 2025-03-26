@@ -72,13 +72,16 @@
 
     <div class="user-profile">
       <img
-        src="https://avatars.mds.yandex.net/i?id=7420abb30a547d6f0feaf134481efaf623786301-11413071-images-thumbs&n=13"
+        src="{{ userService.activeUser.avatar }}"
         alt="User Avatar"
         class="avatar"
+        *ngIf="userService.activeUser.avatar"
       />
       <div class="user-info">
-        <h2 class="user-name">Azunyan U. Wu</h2>
-        <p class="user-role">Basic Member</p>
+        <h2 class="user-name">
+          {{ userService.activeUser.fullName }}
+        </h2>
+        <p class="user-role">{{ userService.activeUser.role }}</p>
       </div>
       <button (click)="authService.logoutUser()" class="logout-button">
         <img src="assets/icons/exit.svg" alt="Logout" />

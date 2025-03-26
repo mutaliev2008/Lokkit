@@ -6,7 +6,8 @@ export function OnlyLettersValidator(): ValidatorFn {
     if (!value) {
       return null;
     }
-    const regex = /^[A-Za-zА-Яа-я\s-]+$/;
+    const regex = /^[A-Za-zА-Яа-я\s_-]+$/;
+
     if (!regex.test(value)) {
       return { lettersOnly: true };
     }
