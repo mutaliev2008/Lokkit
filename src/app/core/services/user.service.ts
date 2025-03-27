@@ -40,7 +40,6 @@ export class UserService {
       retry(2),
       tap((res) => {
         this.usersSubject$.next(res);
-        console.log(this.usersSubject$.value);
         catchError((error: HttpErrorResponse) => {
           console.error('Не удалось вернуть пользователей', error.error);
           throw error;
